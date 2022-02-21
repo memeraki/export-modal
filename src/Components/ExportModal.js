@@ -10,8 +10,8 @@ function ExportModal() {
   const [selectedSchedule, setSelectedSchedule] = useState("No Repeat");
   const [schedule, setSchedule] = useState({option: "No Repeat"});
 
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [date, setDate] = useState("2022-02-22");
+  const [time, setTime] = useState("13:00:00");
   const [day, setDay] = useState("Wednesday");
 
   const [status, setStatus] = useState("");
@@ -84,9 +84,11 @@ function ExportModal() {
     setSelectedFormat("Excel");
     setSelectedSchedule("No Repeat");
     setSchedule({option: "No Repeat"});
-    setDate("");
-    setTime("");
+    setDate("2022-02-22");
+    setTime("13:00:00");
     setDay("Wednesday");
+    // reset status
+    setStatus("");
   }
 
   const renderSchedule = (param) => {
@@ -98,9 +100,18 @@ function ExportModal() {
           <>
           <label>Date</label>
           <div className="schedule">
-            <input type="date" name="date" onChange={handleInputChange}/>
+            <input 
+              type="date"
+              name="date"
+              value={date} 
+              onChange={handleInputChange}/>
             <label>at</label>
-            <input type="time" name="time" onChange={handleInputChange}/>
+            <input
+              type="time"
+              name="time"
+              value={time} 
+              onChange={handleInputChange}
+            />
           </div>
           </>
           );
@@ -111,7 +122,8 @@ function ExportModal() {
           <div className="schedule">
             <input 
               type="time" 
-              name="time" 
+              name="time"
+              value={time} 
               onChange={handleInputChange}  
             />
           </div>
@@ -132,7 +144,12 @@ function ExportModal() {
               <option value="Sunday">Sunday</option>
             </select>
             <label>at</label>
-            <input type="time" name="time" onChange={handleInputChange} />
+            <input 
+              type="time" 
+              name="time" 
+              value={time}
+              onChange={handleInputChange} 
+            />
           </div>          
           </>
           );
@@ -157,7 +174,7 @@ function ExportModal() {
                 placeholder="Shareablee Report"
                 value={reportInput}
                 onChange={handleInputChange}
-                // required
+                required
               />
               <label>Format</label>
               <div>
@@ -171,7 +188,7 @@ function ExportModal() {
                 placeholder="client@company.com"
                 value={emailInput}
                 onChange={handleInputChange}
-                // required
+                required
               />
               <label>Schedule</label>
               <div>
@@ -183,13 +200,13 @@ function ExportModal() {
               {renderSchedule(selectedSchedule)}
             </div>
             <div className='buttons'>
-              <button type="button" onClick={clearFrom}>Cancel</button>
-              <button type="submit">OK</button>
+              <div className="status">{!status ? null : status}</div>
+              <input className="light" type="button" value="Cancel" onClick={clearFrom} />
+              <input className="dark" type="submit" value="OK" />
             </div>
           </form>
         </div>
       </div>
-      <div className="status">{!status ? null : status}</div>
     </>
   );
 }

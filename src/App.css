@@ -9,27 +9,82 @@
   top: 50%;
   left: 50%;
   transform: translate( -50%, -50% );
-  width: 500px;
-  height: 300px;
-  border: 1px solid black;
+  width: 600px;
+  height: 350px;
+  border: 1px solid grey;
 }
 
 .header {
-  background-color: grey;
+  background-color: lightgray;
+  padding: 0.5em;
+}
+
+.content {
+  padding: 1em;
 }
 
 .inputs {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto; 
-  /* gap: 10px; */
+  gap: 0.8em;
+}
+
+input {
+  padding: 0.5em;
+}
+
+label {
+  align-self: center;
+}
+
+.radio {
+  margin-right: 1em;
 }
 
 .buttons {
   position: absolute;
   bottom: 0;
+  right: 0;
+  width: 100%;
+  padding: 1em;
+  border-top: 1px solid grey;
+  text-align: right;
+}
+
+.buttons input {
+  padding: 0.5em;
+  text-align: center;
+  border: 1px solid grey;
+  width: 100px;
+  margin-left: 1em;
+}
+
+.light {
+  background: white;
+  color: grey;
+}
+
+.dark {
+  background: #222;
+  color: white;
 }
 
 .schedule {
   display: flex;
+}
+
+.schedule label {
+  margin: 0 1em;
+}
+
+.status {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 }
