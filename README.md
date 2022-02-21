@@ -1,4 +1,4 @@
-# mini-vue-application
+# export-modal
 
 [Live - visit to see the application](https://memeraki.github.io/export-modal/)
 
