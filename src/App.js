@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import ExportModal from './Components/ExportModal';
 
 function App() {
   return (
     <div className="App">
-      export model
+      <ExportModal />
     </div>
   );
 }
